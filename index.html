@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Edu Fair & Career Expo 2026 - SMKN 6 Tangsel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ELEMEN AUDIO / MUSIK LATAR MENGGUNAKAN FILE LOKAL -->
+    <audio id="bg-music" loop>
+        <source src="lagu.mp4" type="audio/mpeg">
+        Browsermu tidak mendukung elemen audio.
+    </audio>
+
+    <!-- Tombol Musik Melayang di Pojok Kanan Bawah -->
+    <button type="button" class="music-control-btn" id="musicBtn" onclick="toggleMusic()" title="Putar/Hentikan Musik">
+        <i class="fa-solid fa-compact-disc" id="musicIcon"></i>
+    </button>
+
+    <div class="wrapper">
+        <!-- ================= HALAMAN SAMPUL (COVER) ================= -->
+        <div class="cover-page" id="coverPage">
+            <div class="cover-header">
+                <span class="badge-gold">Official Invitation</span>
+                <h1>Edu Fair &amp; Career Expo 2026</h1>
+                <p>"Connecting Competence to Future: Bekerja, Melanjutkan, Berwirausaha"</p>
+            </div>
+
+            <div class="cover-body">
+                <div class="guest-card-preview">
+                    <div class="label-to">Kepada Yth. Bapak/Ibu/Saudara/i:</div>
+                    <h2 id="cover-nama">Tamu Undangan</h2>
+                </div>
+
+                <button type="button" class="btn-open-invite" onclick="bukaUndangan()">
+                    <i class="fa-solid fa-envelope-open-text"></i> Buka Undangan
+                </button>
+            </div>
+        </div>
+
+        <!-- ================= HALAMAN ISI UNDANGAN ================= -->
+        <div class="main-card" id="mainCard">
+            <div class="hero-banner">
+                <span class="badge-gold">Official Invitation</span>
+                <h1>Edu Fair &amp; Career Expo 2026</h1>
+                <p>"Connecting Competence to Future: Bekerja, Melanjutkan, Berwirausaha"</p>
+            </div>
+
+            <div class="content-body">
+                <!-- Kotak Nama Tamu -->
+                <div class="recipient-box">
+                    <div class="to-label">Kepada Yth. Bapak/Ibu/Saudara/i:</div>
+                    <h2 id="main-nama">Tamu Undangan</h2>
+                </div>
+
+                <!-- COUNTDOWN TIMER MENUJU 25 NOVEMBER 2026 -->
+                <div class="countdown-container">
+                    <div class="countdown-title"><i class="fa-regular fa-clock"></i> Menuju Hari Acara</div>
+                    <div class="countdown-timers">
+                        <div class="time-box">
+                            <span id="days">00</span>
+                            <small>Hari</small>
+                        </div>
+                        <div class="time-box">
+                            <span id="hours">00</span>
+                            <small>Jam</small>
+                        </div>
+                        <div class="time-box">
+                            <span id="minutes">00</span>
+                            <small>Menit</small>
+                        </div>
+                        <div class="time-box">
+                            <span id="seconds">00</span>
+                            <small>Detik</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detail Pelaksanaan -->
+                <h3 class="section-heading">Detail Pelaksanaan</h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-card-title">
+                            <i class="fa-solid fa-calendar-days icon-blue"></i> Hari &amp; Tanggal
+                        </div>
+                        <p>Rabu, 25 November 2026</p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-card-title">
+                            <i class="fa-solid fa-clock icon-orange"></i> Waktu
+                        </div>
+                        <p>07.00 – 14.00 WIB</p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-card-title">
+                            <i class="fa-solid fa-location-dot icon-pink"></i> Lokasi
+                        </div>
+                        <p>SMKN 6 Kota Tangerang Selatan</p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-card-title">
+                            <i class="fa-solid fa-building-columns icon-purple"></i> Acara
+                        </div>
+                        <p>Sharing Session, Pameran Kampus &amp; Karier, dan Hiburan</p>
+                    </div>
+                </div>
+
+                <!-- GALERI FOTO KEGIATAN (6 Foto) -->
+                <h3 class="section-heading">Galeri &amp; Dokumentasi</h3>
+                <div class="photo-gallery">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="Edu Fair 1" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" alt="Edu Fair 2" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80" alt="Edu Fair 3" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80" alt="Edu Fair 4" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=600&q=80" alt="Edu Fair 5" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Edu Fair 6" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- Lokasi Acara (Google Maps) -->
+                <h3 class="section-heading">Lokasi Acara</h3>
+                <div class="map-wrapper">
+                    <iframe 
+                        src="https://maps.google.com/maps?q=SMKN%206%20Kota%20Tangerang%20Selatan&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <a href="https://maps.google.com/?q=SMKN+6+Kota+Tangerang+Selatan" target="_blank" rel="noopener noreferrer" class="map-footer-link">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Buka di Google Maps
+                    </a>
+                </div>
+
+                <!-- Konfirmasi Kehadiran (RSVP) -->
+                <div class="rsvp-box">
+                    <h3>Konfirmasi Kehadiran (RSVP)</h3>
+                    <p>Mohon konfirmasi kehadiran Bapak/Ibu/Saudara/i melalui pilihan di bawah ini:</p>
+                    <div class="rsvp-actions">
+                        <button type="button" class="btn-rsvp-yes" onclick="konfirmasiRSVP('Hadir')">
+                            <i class="fa-solid fa-circle-check"></i> Saya Hadir
+                        </button>
+                        <button type="button" class="btn-rsvp-no" onclick="konfirmasiRSVP('Berhalangan')">
+                            <i class="fa-solid fa-circle-xmark"></i> Berhalangan
+                        </button>
+                    </div>
+                    <div id="rsvp-feedback" class="rsvp-feedback"></div>
+                </div>
+
+                <div class="footer-closing">
+                    Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir pada acara tersebut.
+                    <strong>Panitia Edu Fair &amp; Career Expo 2026 — SMKN 6 Kota Tangerang Selatan</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const nama = urlParams.get('to');
+
+        if (nama) {
+            document.getElementById('cover-nama').textContent = nama;
+            document.getElementById('main-nama').textContent = nama;
+        }
+
+        const music = document.getElementById('bg-music');
+        const musicBtn = document.getElementById('musicBtn');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                musicBtn.classList.remove('playing');
+                musicBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
+            } else {
+                music.play().then(() => {
+                    musicBtn.classList.add('playing');
+                    musicBtn.innerHTML = '<i class="fa-solid fa-compact-disc" id="musicIcon"></i>';
+                    isPlaying = true;
+                }).catch(e => console.log("Gagal memutar audio:", e));
+            }
+            isPlaying = !isPlaying;
+        }
+
+        function bukaUndangan() {
+            const cover = document.getElementById('coverPage');
+            const main = document.getElementById('mainCard');
+
+            cover.classList.add('hidden');
+            main.classList.add('show');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            music.play().then(() => {
+                musicBtn.classList.add('playing');
+                isPlaying = true;
+            }).catch(e => {
+                console.log("Autoplay dicegah oleh browser, silakan klik tombol musik di pojok kanan bawah:", e);
+            });
+        }
+
+        const eventDate = new Date("November 25, 2026 07:00:00").getTime();
+
+        const countdown = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.getElementById("days").textContent = "00";
+                document.getElementById("hours").textContent = "00";
+                document.getElementById("minutes").textContent = "00";
+                document.getElementById("seconds").textContent = "00";
+            } else {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById("days").textContent = String(days).padStart(2, '0');
+                document.getElementById("hours").textContent = String(hours).padStart(2, '0');
+                document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+                document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+            }
+        }, 1000);
+
+        function konfirmasiRSVP(status) {
+            const namaTamu = document.getElementById('main-nama').textContent;
+
+            if (!namaTamu || namaTamu === "Tamu Undangan") {
+                alert("Nama tamu tidak valid.");
+                return;
+            }
+
+            const noWaPanitia = '6285894724746';
+            const pesan = `Halo Panitia Edu Fair & Career Expo 2026 SMKN 6 Kota Tangerang Selatan,\n\nSaya ingin mengonfirmasi kehadiran (RSVP):\n• *Nama:* ${namaTamu}\n• *Status:* *${status}*\n\nTerima kasih.`;
+            
+            window.location.href = `https://wa.me/${noWaPanitia}?text=${encodeURIComponent(pesan)}`;
+        }
+    </script>
+</body>
+</html>

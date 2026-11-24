@@ -1,0 +1,534 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    /* Background baru: gradasi biru malam mewah dengan efek cahaya lembut bercorak modern */
+    background-color: #030712;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.35) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(250, 204, 21, 0.18) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.8) 0%, transparent 80%),
+        linear-gradient(135deg, #030712 0%, #0f172a 50%, #020617 100%);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+    background-attachment: fixed;
+    color: #1e293b;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 28px 16px;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 720px;
+    position: relative;
+}
+
+/* ================= HALAMAN COVER / SAMPUL ================= */
+.cover-page {
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.15);
+    overflow: hidden;
+    text-align: center;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    z-index: 10;
+}
+
+.cover-page.hidden {
+    opacity: 0;
+    transform: translateY(-40px) scale(0.97);
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.cover-header {
+    position: relative;
+    /* Header dengan gradasi premium ala kartu undangan VIP */
+    background: linear-gradient(135deg, #0b132b 0%, #1c2541 50%, #1e3a8a 100%);
+    padding: 52px 28px 44px;
+    color: #ffffff;
+    overflow: hidden;
+    border-bottom: 4px solid #facc15;
+}
+
+/* Efek cahaya dekoratif emas di sudut header */
+.cover-header::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(250, 204, 21, 0.35) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.badge-gold {
+    display: inline-block;
+    background: linear-gradient(135deg, #fde047 0%, #facc15 100%);
+    color: #172554;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 7px 22px;
+    border-radius: 50px;
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 15px rgba(250, 204, 21, 0.45);
+}
+
+.cover-header h1 {
+    font-size: 1.95rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.cover-header p {
+    font-size: 0.94rem;
+    color: #93c5fd;
+    font-weight: 500;
+}
+
+.cover-body {
+    padding: 34px 28px 38px;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.guest-card-preview {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-left: 5px solid #1e3a8a;
+    border-radius: 16px;
+    padding: 22px 24px;
+    text-align: left;
+    margin-bottom: 28px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+}
+
+.guest-card-preview .label-to {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-bottom: 6px;
+}
+
+.guest-card-preview h2 {
+    font-size: 1.45rem;
+    color: #1e3a8a;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.btn-open-invite {
+    background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+    color: #ffffff;
+    border: none;
+    width: 100%;
+    max-width: 320px;
+    padding: 15px 24px;
+    border-radius: 14px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 10px 25px rgba(30, 58, 138, 0.4);
+    transition: all 0.25s ease;
+}
+
+.btn-open-invite:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(30, 58, 138, 0.5);
+}
+
+/* ================= HALAMAN ISI UNDANGAN UTAMA ================= */
+.main-card {
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.15);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.main-card.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    position: relative;
+}
+
+.hero-banner {
+    position: relative;
+    background: linear-gradient(135deg, #0b132b 0%, #1c2541 50%, #1e3a8a 100%);
+    padding: 46px 28px 40px;
+    text-align: center;
+    color: #ffffff;
+    overflow: hidden;
+    border-bottom: 4px solid #facc15;
+}
+
+.hero-banner::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(250, 204, 21, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.hero-banner h1 {
+    font-size: 1.9rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-banner p {
+    font-size: 0.94rem;
+    color: #93c5fd;
+    font-weight: 500;
+}
+
+.content-body {
+    padding: 32px 32px 36px;
+}
+
+.recipient-box {
+    background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+    border: 1px solid #e2e8f0;
+    border-left: 5px solid #1e3a8a;
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin-bottom: 32px;
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.04);
+}
+
+.recipient-box .to-label {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-bottom: 4px;
+}
+
+.recipient-box h2 {
+    font-size: 1.4rem;
+    color: #1e3a8a;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+/* Countdown Timer Box */
+.countdown-container {
+    background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+    border-radius: 18px;
+    padding: 22px;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 32px;
+    box-shadow: 0 10px 24px rgba(30, 58, 138, 0.25);
+}
+
+.countdown-title {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #93c5fd;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 14px;
+}
+
+.countdown-timers {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.time-box {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+    padding: 12px 6px;
+    backdrop-filter: blur(4px);
+}
+
+.time-box span {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.time-box small {
+    font-size: 0.72rem;
+    color: #cbd5e1;
+    text-transform: uppercase;
+}
+
+/* Section Heading */
+.section-heading {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #0f172a;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e2e8f0;
+    margin-bottom: 20px;
+}
+
+/* Grid 2 Kolom untuk Detail */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.info-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 18px 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.06);
+}
+
+.info-card-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.icon-blue { color: #2563eb; }
+.icon-orange { color: #ea580c; }
+.icon-pink { color: #e11d48; }
+.icon-purple { color: #7c3aed; }
+
+.info-card p {
+    font-size: 0.9rem;
+    color: #334155;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+/* Galeri Foto */
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.gallery-item {
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    background: #e2e8f0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.03);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Peta Maps */
+.map-wrapper {
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #cbd5e1;
+    margin-bottom: 32px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.map-wrapper iframe {
+    width: 100%;
+    height: 260px;
+    border: 0;
+    display: block;
+}
+
+.map-footer-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #f8fafc;
+    color: #1e3a8a;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 700;
+    padding: 12px;
+    border-top: 1px solid #e2e8f0;
+    transition: background 0.2s ease;
+}
+
+.map-footer-link:hover {
+    background: #eff6ff;
+}
+
+/* RSVP */
+.rsvp-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.rsvp-box h3 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 6px;
+}
+
+.rsvp-box p {
+    font-size: 0.88rem;
+    color: #64748b;
+    margin-bottom: 18px;
+}
+
+.rsvp-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+.btn-rsvp-yes, .btn-rsvp-no {
+    flex: 1;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.btn-rsvp-yes {
+    background: #16a34a;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.25);
+}
+
+.btn-rsvp-yes:hover {
+    background: #15803d;
+    transform: translateY(-1px);
+}
+
+.btn-rsvp-no {
+    background: #ffffff;
+    color: #dc2626;
+    border: 1.5px solid #fca5a5;
+}
+
+.btn-rsvp-no:hover {
+    background: #fef2f2;
+    transform: translateY(-1px);
+}
+
+.footer-closing {
+    text-align: center;
+    font-size: 0.84rem;
+    color: #64748b;
+    line-height: 1.6;
+    border-top: 1px dashed #cbd5e1;
+    padding-top: 20px;
+}
+
+.footer-closing strong {
+    display: block;
+    color: #0f172a;
+    font-size: 0.9rem;
+    margin-top: 6px;
+}
+
+/* Tombol Musik Melayang */
+.music-control-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+    color: #ffffff;
+    border: 2px solid #facc15;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4);
+    z-index: 999;
+    transition: transform 0.2s ease;
+}
+
+.music-control-btn:hover {
+    transform: scale(1.1);
+}
+
+.music-control-btn.playing i {
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 600px) {
+    .hero-banner, .cover-header { padding: 36px 20px; }
+    .hero-banner h1, .cover-header h1 { font-size: 1.45rem; }
+    .content-body, .cover-body { padding: 24px 20px; }
+    .info-grid { grid-template-columns: 1fr; gap: 12px; }
+    .photo-gallery { grid-template-columns: repeat(2, 1fr); }
+    .rsvp-actions { flex-direction: column; }
+    .countdown-timers { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+}
